@@ -1,0 +1,234 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+    }
+
+    //problem1
+    public static void odd_even(int num) {
+        if (num % 2 == 0) {
+            System.out.print("The number is even");
+        }
+
+        else {
+            System.out.print("The number is odd");
+        }
+    }
+
+    //problem2
+    public static void divisible(int num1, int num2) {
+        if (num1 % num2 == 0 || num2 % num1 ==0) {
+            System.out.print("1");
+        }
+        else {
+            System.out.print("0");
+        }
+    }
+
+    //problem3
+    public static void concat(int num) {
+        if (num < 0) {
+            System.out.print("Please enter a positive value");
+        }
+        else { System.out.print(num + Integer.parseInt(Integer.toString(num) + num) + Integer.parseInt(Integer.toString(num) + num + num));
+        }
+    }
+
+
+
+    //problem4
+    public static void last_digit(int num) {
+        if (num % 10 == 0) {
+            System.out.print(num);
+        }
+        else {
+            int last_digit = num % 10;
+
+            System.out.print(Integer.toString(last_digit) + num / 10);
+        }
+    }
+
+    //problem5
+    public static void average (double n1, double n2, double n3, double n4, double n5) {
+        double avg = (n1 + n2 + n3 + n4 + n5) / 5;
+        System.out.print(avg);
+    }
+
+    //problem6
+    public static void ascending (int num1, int num2, int num3) {
+        if (num1 < num2 && num1 < num3 && num2 < num3) {
+            System.out.print(num1+ " , " + num2 + " , " + num3);
+        }
+
+        else if (num1 < num2 && num1 < num3 && num3 < num2) {
+            System.out.print(num1 + " , " + num3 + " , " + num2);
+        }
+
+
+        else if (num2 < num1 && num2 < num3 && num1 < num3) {
+            System.out.print(num2 + " , "  + num1 + " , " + num3);
+        }
+
+        else if (num2 < num1 && num2 < num3 && num3 < num1) {
+            System.out.print(num2 + " , " + num3 + " , " + num1);
+        }
+
+
+        else if (num3 < num2 && num3 < num1 && num1 < num2) {
+            System.out.print(num3 + " , " + num1 + " , " + num2);
+        }
+
+        else {
+            System.out.print(num3 + " , " + num2 + " , " + num1);
+        }
+
+    }
+
+    //problem7
+    public static void sign(int a, int b, int c) {
+        int[] arr = {a, b, c};
+        if (a == 0 || b == 0 || c == 0) {
+            System.out.print("Unsigned");
+        }
+
+        else {
+            int counter = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                counter++;
+            }
+        }
+
+        if (counter % 2 == 0) {
+            System.out.print("+");
+        }
+
+        else {
+            System.out.print("-");
+            }
+        }
+    }
+
+    //problem8
+    public static void quadratic (int a, int b, int c) {
+        if (a == 0) {
+            System.out.print("enter valid contants");
+        }
+        else {
+            int d = b*b - (4*a*c);
+            if (d < 0) {
+                System.out.print("Solution does not exist");
+            }
+            else {
+                double r1 = (-b - Math.sqrt(d)) / (2*a);
+                double r2 = (-b + Math.sqrt(d)) / (2*a);
+                if (r1 == r2) {
+                    System.out.print("Solution is " + r1);
+                }
+                else {
+                    System.out.print("Solutions are " + r1 + " and " + r2);
+                }
+            }
+        }
+    }
+
+    //problem9
+    public static void i_do_not_know (int n) {
+
+        int i = 0;
+        int j = 0;
+
+        if (n % 2 ==  0 && n != Math.floor(n / 10)) {
+            i += 1;
+        }
+        else if (n % 3 == 0 && n % 10 == 1) {
+            j += 1;
+        }
+    }
+
+    //problem10
+    public static void digit_num (int d, int num) {
+        if (d < 0 || d > 9) {
+            System.out.print("It's not a digit");
+        }
+
+        else {
+            String str = Integer.toString(num);
+            for (int i = 0; i < str.length(); i++) {
+                int a = Character.getNumericValue(str.charAt(i));
+                if (a == d) {
+                    System.out.println("Yes");
+                }
+                else {
+                    System.out.println("No");
+                }
+            }
+        }
+    }
+
+    //problem11
+     public static void reverse (int num) {
+            String number = Integer.toString(num);
+            String first_digit = Integer.toString(num % 10);
+            char last_digit = number.charAt(0);
+                if(number.length() == 1) {
+                    System.out.print(num);
+                }
+                else if (number.length() == 2) {
+                    System.out.print(first_digit + last_digit);
+                }
+                else {
+                    int a = 1;
+                        for (int i = 0; i < number.length() - 1; i++) {
+                            a = a * 10;
+                    }
+                        int no_first_digit = num % a;
+                        int no_last_digit = no_first_digit / 10;
+                        String cutted = Integer.toString(no_last_digit);
+                        System.out.print(first_digit + cutted + last_digit);
+                    }
+                }
+
+
+
+    //problem12
+    public static void area (String str, double a, double b) {
+        if (a == 0 || b == 0) {
+            System.out.print("Please enter only positive");
+        }
+        else if (str == "triangle") {
+            System.out.print("Square of the " + str + " is " + a*b/2);
+        }
+        else if (str == "rectangle") {
+            System.out.print("Square of the " + str + " is " + a*b);
+        }
+
+    }
+
+    //problem13
+    public static void difference(int num) {
+        String number = Integer.toString(num);
+        if(number.length() == 1) {
+            System.out.print("0");
+        }
+
+        else {
+            int max = number.charAt(0);
+            int min = number.charAt(0);
+
+            for (int i = 0; i < number.length(); i++) {
+                if (number.charAt(i) > max) {
+                    max = number.charAt(i);
+                }
+
+                else if (number.charAt(i) < min) {
+                    min = number.charAt(i);
+                }
+            }
+            System.out.print(max - min);
+        }
+
+    }
+
+}
