@@ -1,0 +1,29 @@
+ public class Main {
+
+    public static void main(String[] args) {
+       palindrome(I did, did I?);
+    }
+ 
+ public static void palindrome(String str1) {
+        String str = str1.toLowerCase();
+        int[] array = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            array[i] = str.charAt(i);
+            if (array[i] == ' ' || array[i] == ',' || array[i] == '-' || array[i] == '?') {
+                for (int k = i; k < array.length - 1; k++) {
+                    array[k] = array[k + 1];
+                }
+            }
+        }
+
+        boolean isPalindrome = true;
+        for (int x = 0, z = array.length - 1; x < array.length / 2 && z > array.length / 2; x++, z--) {
+            if (array[x] != array[z]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.print(isPalindrome);
+    }
+    }
