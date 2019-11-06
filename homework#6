@@ -1,0 +1,48 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        //by testing both of the methods we can see that by using arrays the process is done
+        //more efficiently and consumes less time
+        long startTime = System.nanoTime();
+        HanoiTower(4, 'A', 'C', 'B');
+       // HanoiTowerArrays(4);
+        long estimatedTime = System.nanoTime() - startTime;
+        System.out.print(estimatedTime);
+
+
+    }
+
+   public static void HanoiTower(int n, char A, char C, char B)
+    {
+        if (n == 1)
+        {
+            System.out.println("Move disk 1 from rod " +  A + " to rod " + C);
+            return;
+        }
+        HanoiTower(n-1, A, B, C);
+        System.out.println("Move disk " + n + " from rod " +  A + " to rod " + C);
+        HanoiTower(n-1, B, C, A);
+    }
+
+//taking the disks as numbers 1 being the smallest disk and n being the largest
+    public static void HanoiTowerArrays(int n) {
+
+        //initializing a new array of size n and pouring the disks "numbers" in it
+        //starting from the first cell of the array
+        int[] array = new int[n];
+        int num = 1;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = num;
+            num++;
+        }
+
+        //starting from the last index system.out the numbers so that
+        //the largest number is at the bottom and the smallest number at the top
+        for (int j = array.length - 1; j >= 0; j--) {
+            System.out.println("move " + array[j] + " from array to C " );
+        }
+    }
+
+}
